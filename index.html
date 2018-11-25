@@ -8,18 +8,60 @@
     <link rel="icon" href="favicon.ico">
     <title>ErgoApp - login</title>
     <link rel="stylesheet" href="css/styles.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
-<body>
-    <div id="login-block">
-        <input type="text" id="login">
-        <input type="text" id="password">
-        
-        <button onclick="check_login()">Submit</button>
-        <p id="tx"></p>
-        <p id="txV"></p>
+<body class="bg-info">
+
+
+
+
+
+
+
+
+
+    <h1 class="display-3 mb-5 text-center">ErgoApp</h1>
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-6">
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend w-25">
+                            <span class="input-group-text w-100" id="login-addon3">Login</span>
+                        </div>
+                        <input type="text" class="form-control w-75" id="login" aria-describedby="login-addon3" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend w-25">
+                            <span class="input-group-text w-100" id="password-addon3">Password</span>
+                        </div>
+                        <input type="password" class="form-control w-75" id="password" aria-describedby="password-addon3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-dark btn-block btn-lg" onclick="checkLogin()">Submit</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <noscript>
         <strong>We're sorry but ergoapp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
