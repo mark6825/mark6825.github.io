@@ -7,7 +7,7 @@ function check_login() {
       document.location.href = 'profil.html';
       if (pass == "pass123") {
         document.getElementById("txV").innerHTML = pass;
-        document.location.href = 'profil.html';
+        document.location.href = 'main.html';
       }
     }
     else {
