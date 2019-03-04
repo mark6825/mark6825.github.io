@@ -2,30 +2,21 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="favicon.ico">
-    <title>ErgoApp - main</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="favicon.ico">
+  <title>ErgoApp - main</title>
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.min.css">
 </head>
 
 <body class="bg-info">
-    <h1 class="display-3 mb-5 text-center">ErgoApp</h1>
-
-
-
-
-
-
-
-
-    <h1>HELLO</h1>
-
-
-
-
+  <nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container">
+      <span class="navbar-brand mb-0 h1">ErgoApp</span>
+    </div>
+  </nav>
 
 
 
@@ -35,13 +26,154 @@
 
 
 
+  <div class="content container pb-4">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">Room data</h4>
+      </div>
+      <div class="col-6 col-sm-3">
+        <div class="form-group">
+          <label for="house">House number</label>
+          <input type="number" min="0" class="form-control" id="house" aria-describedby="house-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-3">
+        <div class="form-group">
+          <label for="floor">Floor</label>
+          <input type="number" min="0" class="form-control" id="floor" aria-describedby="floor-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-3">
+        <div class="form-group">
+          <label for="apartment">Apartment</label>
+          <input type="number" min="0" class="form-control" id="apartment" aria-describedby="apartment-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-3">
+        <div class="form-group">
+          <label for="room">Room</label>
+          <input type="number" min="0" class="form-control" id="room" aria-describedby="room-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+    </div>
 
-    <noscript>
-            <strong>We're sorry but ergoapp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-        </noscript>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="js/main.min.js"></script>
-    </body>
-    
+    <hr class="mb-4">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">Room size</h4>
+      </div>
+      <div class="col-6 col-sm-4">
+        <div class="form-group">
+          <label for="width">Width (m)</label>
+          <input type="number" min="0" step="0.1" class="form-control" id="width" aria-describedby="width-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-4">
+        <div class="form-group">
+          <label for="length">Length (m)</label>
+          <input type="number" min="0" step="0.1" class="form-control" id="length" aria-describedby="length-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-4">
+        <div class="form-group">
+          <label for="height">Height (m)</label>
+          <input type="number" min="0" step="0.1" class="form-control" id="height" aria-describedby="height-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+    </div>
+    <hr class="mb-4">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">Set of equipment</h4>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="form-group">
+          <label for="computers">Computers</label>
+          <input type="number" min="0" class="form-control" id="computers" aria-describedby="computers-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="form-group">
+          <label for="tables">Tables</label>
+          <input type="number" min="0" class="form-control" id="tables" aria-describedby="tables-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="form-group">
+          <label for="chairs">Chairs</label>
+          <input type="number" min="0" class="form-control" id="chairs" aria-describedby="chairs-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="form-group">
+          <label for="thumbs">Thumbs</label>
+          <input type="number" min="0" class="form-control" id="thumbs" aria-describedby="thumbs-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="form-group">
+          <label for="cabinets">Cabinets</label>
+          <input type="number" min="0" class="form-control" id="cabinets" aria-describedby="cabinets-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+    </div>
+    <hr class="mb-4">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="mb-3">Set of room exits</h4>
+      </div>
+      <div class="col-12 col-sm-4 col-md-3">
+        <div class="form-group">
+          <label for="windows">Number of windows</label>
+          <input type="number" min="0" class="form-control" id="windows" aria-describedby="windows-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 col-md-3">
+        <div class="form-group">
+          <label for="doors">Number of doors</label>
+          <input type="number" min="0" class="form-control" id="doors" aria-describedby="doors-addon3"
+            autocomplete="off">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-dark" onclick="calc()">Calc</button>
+
+
+  </div>
+
+
+
+
+
+  <footer class="footer d-flex flex-wrap justify-content-center align-content-center bg-dark text-white text-center">
+    <div class="container">
+      Copyright &#9400; Serhii Sokol. Praca Dyplomowa Magisterska / 2019
+    </div>
+  </footer>
+
+
+
+
+
+
+  <noscript>
+    <strong>We're sorry but ergoapp doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <script src="js/main.min.js"></script>
+</body>
+
 </html>
