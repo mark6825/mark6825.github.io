@@ -166,7 +166,33 @@
 
 
 
+  <!-- Modal -->
+  <div class="modal fade" id="modalWelcome">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Welcome to ErgoApp</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p class="text-center"><b>Summary</b></p>
+          <p>The main purpose of this work is to create an information system that helps the user to design office space in ergonomics aspect. Nowadays, elements of ergonomics are increasingly appearing in our lives, thus productivity is increasing significantly.</p>
+          <p>The user can use the application from anywhere on earth. For this, he will need a web browser, access to the internet and a conception of the room, which will be projected.</p>
+          <p>The application is intended for designers and office administrators. Also, the application can be used by people who are interested in improving the efficiency of work due to the ergonomics of the workplace.</p>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
   <noscript>
@@ -174,6 +200,11 @@
       continue.</strong>
   </noscript>
   <script src="js/main.min.js"></script>
+  <script>
+    $( document ).ready(function() {
+      $("#modalWelcome").modal("show");
+    });
+  </script>
 </body>
 
 </html>
