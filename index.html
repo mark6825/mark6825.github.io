@@ -1,147 +1,221 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" href="favicon.ico">
-  <title>ErgoApp</title>
-  <link rel="stylesheet" href="css/styles.min.css">
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#343a40">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="favicon.ico">
+    <title>ErgoApp</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="bg-info">
-  <nav class="navbar navbar-dark bg-dark mb-4">
-    <div class="container">
-      <span class="navbar-brand mb-0 h1">ErgoApp</span>
-    </div>
-  </nav>
+    <nav class="navbar navbar-dark bg-dark mb-4" style="align-items:baseline">
+        <div class="container">
+            <a href="index.php" class="navbar-brand mb-0 h1">ErgoApp</a>
+            <div class="navbar__rightPart text-white d-flex align-items-baseline">
+                <span class="d-none d-sm-block">User: username</span>
+                <button class="btn btn-danger d-none d-sm-block ml-4" onclick="ModalLogoutShow()">Logout</button>
 
-
-
-  
-
-
-
-
-
-
-  <section class="content py-4">
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="col-12 col-md-8 col-lg-6">
-        <div id="sign-tab">
-
-          <div class="nav nav-tabs" id="sign-tab__nav" role="tablist">
-            <a class="nav-item nav-link" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab"
-              aria-controls="nav-1" aria-selected="true">SIGN UP</a>
-            <a class="nav-item nav-link active" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-2"
-              aria-selected="false">LOG IN</a>
-          </div>
-
-
-
-          <div class="tab-content" id="sign-tab__content">
-            <form class="tab-pane fade" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
-              <div class="form-group">
-                <label class="d-block d-xl-none" for="login-reg">Username</label>
-                <div class="input-group input-group-lg">
-                  <div class="input-group-prepend w-25 d-none d-xl-block">
-                    <label class="input-group-text w-100" id="login-reg-addon3" for="login-reg">Username</label>
-                  </div>
-                  <input type="text" class="form-control w-75 _login-input-xs" id="login-reg"
-                    aria-describedby="login-reg-addon3">
+                <span class="dropdown-toggle d-block d-sm-none text-truncate" id="dropdownUserButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="max-width:160px">
+            User: username          </span>
+                <div class="dropdown-menu dropdown-menu-right bg-dark p-2" aria-labelledby="dropdownUserButton">
+                    <button class="btn btn-danger btn-block" onclick="ModalLogoutShow()">Logout</button>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="d-block d-xl-none" for="email-reg">Email</label>
-                <div class="input-group input-group-lg">
-                  <div class="input-group-prepend w-25 d-none d-xl-block">
-                    <label class="input-group-text w-100" id="email-reg-addon3" for="email-reg">Email</label>
-                  </div>
-                  <input type="text" class="form-control w-75 _login-input-xs" id="email-reg"
-                    aria-describedby="email-reg-addon3" autocomplete="ergoapp-email-reg">
-                </div>
-              </div>
-              <div class="form-group">
-                  <label class="d-block d-xl-none" for="password-reg">Password</label>
-                  <div class="input-group input-group-lg">
-                    <div class="input-group-prepend w-25 d-none d-xl-block">
-                      <label class="input-group-text w-100" id="password-reg-addon3" for="password-reg">Password</label>
-                    </div>
-                    <input type="password" class="form-control w-75 _login-input-xs" id="password-reg"
-                      aria-describedby="password-reg-addon3">
-                  </div>
-                </div>
-                <div class="form-group">
-                    <label class="d-block d-xl-none" for="passwordConfirm-reg">Confirm password</label>
-                    <div class="input-group input-group-lg">
-                      <div class="input-group-prepend w-25 d-none d-xl-block">
-                        <label class="input-group-text w-100" id="passwordConfirm-reg-addon3" for="passwordConfirm-reg" style="font-size:12px">Confirm password</label>
-                      </div>
-                      <input type="password" class="form-control w-75 _login-input-xs" id="passwordConfirm-reg"
-                        aria-describedby="passwordConfirm-reg-addon3">
-                    </div>
-                  </div>
-              <div class="alert alert-danger d-none" id="alert-login" role="alert"></div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-dark btn-block btn-lg" value="Sign up">
-              </div>
-            </form>
-
-            <form class="tab-pane fade show active" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
-              <div class="form-group">
-                <label class="d-block d-xl-none" for="email-auth">Email</label>
-                <div class="input-group input-group-lg">
-                  <div class="input-group-prepend w-25 d-none d-xl-block">
-                    <label class="input-group-text w-100" id="email-auth-addon3" for="email-auth">Email</label>
-                  </div>
-                  <input type="text" class="form-control w-75 _login-input-xs" id="email-auth"
-                    aria-describedby="email-auth-addon3" autocomplete="ergoapp-email-auth">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="d-block d-xl-none" for="password-auth">Password</label>
-                <div class="input-group input-group-lg">
-                  <div class="input-group-prepend w-25 d-none d-xl-block">
-                    <label class="input-group-text w-100" id="password-auth-addon3" for="password-auth">Password</label>
-                  </div>
-                  <input type="password" class="form-control w-75 _login-input-xs" id="password-auth"
-                    aria-describedby="password-auth-addon3">
-                </div>
-              </div>
-              <div class="alert alert-danger d-none" id="alert-login" role="alert"></div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-dark btn-block btn-lg" onclick="checkLogin()" value="Log in">
-              </div>
-            </form>
-          </div>
-
+            </div>
         </div>
-      </div>
+    </nav>
+
+    <section class="content py-4">
+        <div class="container">
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Information about user</h4>
+                <span><b>Username: </b>username</span><br>
+                <span><b>Email: </b>username@gmail.com</span>
+            </div>
+            <div class="text-left">
+                <button class="btn btn-outline-light btn-lg" onclick="ModalCreateProjectShow()">New project</button>
+            </div>
+            <hr>
+            <h5>User projects:</h5>
+
+            <div class="table-responsive">
+                <table class="table table-dark">
+                    <tr>
+                        <th>Project #</th>
+                        <th>House</th>
+                        <th>Floor</th>
+                        <th>Apartment</th>
+                        <th>Room</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr>
+                        <td>52</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>
+                            <button class='btn btn-warning btn-block' onclick='ShowProject(52)'>View detail</button>
+                        </td>
+                        <td>
+                            <button class='btn btn-danger btn-block' onclick='ModalDeleteProjectShow(52)'>Delete project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>53</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>
+                            <button class='btn btn-warning btn-block' onclick='ShowProject(53)'>View detail</button>
+                        </td>
+                        <td>
+                            <button class='btn btn-danger btn-block' onclick='ModalDeleteProjectShow(53)'>Delete project</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer d-flex flex-wrap align-content-center bg-dark text-white text-center">
+        <div class="container align-self-center">
+            Copyright &#9400; Serhii Sokol. Praca Dyplomowa Magisterska / 2019
+        </div>
+    </footer>
+
+    <!-- Modal WELCOME -->
+    <div class="modal fade" id="modalWelcome" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Welcome to ErgoApp</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p class="text-center"><b>Summary</b></p>
+                    <p>The main purpose of this work is to create an information system that helps the user to design office space in ergonomics aspect. Nowadays, elements of ergonomics are increasingly appearing in our lives, thus productivity is increasing
+                        significantly.</p>
+                    <p>The user can use the application from anywhere on earth. For this, he will need a web browser, access to the internet and a conception of the room, which will be projected.</p>
+                    <p>The application is intended for designers and office administrators. Also, the application can be used by people who are interested in improving the efficiency of work due to the ergonomics of the workplace.</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </section>
 
+    <!-- Modal LOGOUT -->
+    <div class="modal fade" id="modalLogout" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
+                <!-- Modal Header -->
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title">Logout</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Do you really want to logout?</p>
+                </div>
 
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="userAccount.php?logoutSubmit=1" class="btn btn-success">Yes</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
 
-
-
-
-  <footer class="footer d-flex flex-wrap align-content-center bg-dark text-white text-center">
-    <div class="container align-self-center">
-      Copyright &#9400; Serhii Sokol. Praca Dyplomowa Magisterska / 2019
+            </div>
+        </div>
     </div>
-  </footer>
 
+    <!-- Modal DELETE PROJECT -->
+    <div class="modal fade" id="modalDeleteProject" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
+                <!-- Modal Header -->
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title">Delete project</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Do you really want to delete project <b id="modalDeleteProject__idProject"></b>?</p>
+                </div>
 
-  <noscript>
-    <strong>We're sorry but ergoapp doesn't work properly without JavaScript enabled. Please enable it to
-      continue.</strong>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btnDeleteProject" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal CREATE PROJECT -->
+    <div class="modal fade" id="modalCreateProject" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header bg-success text-white">
+                    <h4 class="modal-title">Create project</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Do you really want to create project?</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="main.php" class="btn btn-success">Yes</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <noscript>
+    <strong>We're sorry but application "ErgoApp" doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
   </noscript>
-  <script src="js/main.min.js"></script>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script type="text/babel">
+        $( document ).ready(function() { $("#modalWelcome").modal("show"); }); function ShowProject(id_project) { window.location = "/result.php?project=" + id_project; }; $(".btnDeleteProject").bind("click", function() { let id_string = $(this).attr('id'); let
+        project_id = id_string.substring(17); // 17 first symbols $.ajax({ url: "project-delete.php", type: "POST", data: { project_id: project_id }, success: function(result) { if (result.status === "Error") { alert(result.message); } else if (result.status
+        === "Success") { window.location = "/index.php"; } return false; }, error: function (jqXHR, exception) { console.log("Error Message:", jqXHR, exception); }, complete: function(data) { // console.log('function complete'); } }); return false });
+        function ModalLogoutShow() { $("#modalLogout").modal("show"); }; function ModalDeleteProjectShow(id_project) { $(".btnDeleteProject").attr("id", "btnDeleteProject_" + id_project); $("#modalDeleteProject__idProject").text("#" + id_project); $("#modalDeleteProject").modal("show");
+        }; function ModalCreateProjectShow() { $("#modalCreateProject").modal("show"); };
+    </script>
 </body>
 
 </html>

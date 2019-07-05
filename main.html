@@ -1,209 +1,334 @@
 <!DOCTYPE html>
+
+
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" href="favicon.ico">
-  <title>ErgoApp</title>
-  <link rel="stylesheet" href="css/styles.min.css">
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#343a40">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="favicon.ico">
+    <title>ErgoApp</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="bg-info">
-  <nav class="navbar navbar-dark bg-dark mb-4">
-    <div class="container">
-      <span class="navbar-brand mb-0 h1">ErgoApp</span>
+    <nav class="navbar navbar-dark bg-dark mb-4" style="align-items:baseline">
+        <div class="container">
+            <a href="index.php" class="navbar-brand mb-0 h1">ErgoApp</a>
+            <div class="navbar__rightPart text-white d-flex align-items-baseline">
+                <span class="d-none d-sm-block">User: username</span>
+                <button class="btn btn-danger d-none d-sm-block ml-4" onclick="ModalLogoutShow()">Logout</button>
+
+                <span class="dropdown-toggle d-block d-sm-none text-truncate" id="dropdownUserButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="max-width:160px">
+            User: username          </span>
+                <div class="dropdown-menu dropdown-menu-right bg-dark p-2" aria-labelledby="dropdownUserButton">
+                    <button class="btn btn-danger btn-block" onclick="ModalLogoutShow()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content container pb-4">
+        <form method="post" action="">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Room data</h4>
+                </div>
+                <div class="col-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="house">House number</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="house" name="house" aria-describedby="house-addon3" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="floor">Floor</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="floor" name="floor" aria-describedby="floor-addon3" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="apartment">Apartment</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="apartment" name="apartment" aria-describedby="apartment-addon3" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                    <div class="form-group">
+                        <label for="room">Room</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="room" name="room" aria-describedby="room-addon3" autocomplete="off" required>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Room size</h4>
+                </div>
+                <div class="col-6 col-sm-4">
+                    <div class="form-group">
+                        <label for="width">Width (m)</label>
+                        <input type="number" min="0" max="999.9" step="0.1" pattern="^\d{0,3}(\.\d{0,1})?$" class="form-control" id="width" name="width" aria-describedby="width-addon3" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4">
+                    <div class="form-group">
+                        <label for="length">Length (m)</label>
+                        <input type="number" min="0" max="999.9" step="0.1" pattern="^\d{0,3}(\.\d{0,1})?$" class="form-control" id="length" name="length" aria-describedby="length-addon3" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4">
+                    <div class="form-group">
+                        <label for="height">Height (m)</label>
+                        <input type="number" min="0" max="999.9" step="0.1" pattern="^\d{0,3}(\.\d{0,1})?$" class="form-control" id="height" name="height" aria-describedby="height-addon3" autocomplete="off" required>
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Set of equipment</h4>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <div class="form-group">
+                        <label for="computers">Computers</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="computers" name="computers" aria-describedby="computers-addon3" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <div class="form-group">
+                        <label for="tables">Tables</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="tables" name="tables" aria-describedby="tables-addon3" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <div class="form-group">
+                        <label for="chairs">Chairs</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="chairs" name="chairs" aria-describedby="chairs-addon3" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <div class="form-group">
+                        <label for="thumbs">Thumbs</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="thumbs" name="thumbs" aria-describedby="thumbs-addon3" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2">
+                    <div class="form-group">
+                        <label for="cabinets">Cabinets</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="cabinets" name="cabinets" aria-describedby="cabinets-addon3" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h4 class="mb-3">Set of room exits</h4>
+                </div>
+                <div class="col-12 col-sm-4 col-md-3">
+                    <div class="form-group">
+                        <label for="windows">Number of windows</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="windows" name="windows" aria-describedby="windows-addon3" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 col-md-3">
+                    <div class="form-group">
+                        <label for="doors">Number of doors</label>
+                        <input type="number" min="0" max="999" pattern="^\d{0,3}$" class="form-control" id="doors" name="doors" aria-describedby="doors-addon3" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-dark" onclick="ModalCalculateProjectShow()">Calculate</button>
+            <!-- <input type="submit" class="btn btn-dark" value="Calculate" id="btnSubmitProject"> -->
+        </form>
+    </section>
+
+
+
+    <footer class="footer d-flex flex-wrap align-content-center bg-dark text-white text-center">
+        <div class="container align-self-center">
+            Copyright &#9400; Serhii Sokol. Praca Dyplomowa Magisterska / 2019
+        </div>
+    </footer>
+
+
+    <!-- Modal LOGOUT -->
+    <div class="modal fade" id="modalLogout" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header bg-danger text-white">
+                    <h4 class="modal-title">Logout</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Do you really want to logout?</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="userAccount.php?logoutSubmit=1" class="btn btn-success">Yes</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </nav>
 
+    <!-- Modal CALCULATE PROJECT -->
+    <div class="modal fade" id="modalCalculateProject" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
+                <!-- Modal Header -->
+                <div class="modal-header bg-primary text-white">
+                    <h4 class="modal-title">Calculate project</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Do you really want to calculate project?</p>
+                </div>
 
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-success" value="Yes" id="btnSubmitProject">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
 
-
-
-
-
-  <div class="content container pb-4">
-    <div class="row">
-      <div class="col-12">
-        <h4 class="mb-3">Room data</h4>
-      </div>
-      <div class="col-6 col-sm-3">
-        <div class="form-group">
-          <label for="house">House number</label>
-          <input type="number" min="0" class="form-control" id="house" aria-describedby="house-addon3"
-            autocomplete="off">
+            </div>
         </div>
-      </div>
-      <div class="col-6 col-sm-3">
-        <div class="form-group">
-          <label for="floor">Floor</label>
-          <input type="number" min="0" class="form-control" id="floor" aria-describedby="floor-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-3">
-        <div class="form-group">
-          <label for="apartment">Apartment</label>
-          <input type="number" min="0" class="form-control" id="apartment" aria-describedby="apartment-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-3">
-        <div class="form-group">
-          <label for="room">Room</label>
-          <input type="number" min="0" class="form-control" id="room" aria-describedby="room-addon3"
-            autocomplete="off">
-        </div>
-      </div>
     </div>
 
-    <hr class="mb-4">
-    <div class="row">
-      <div class="col-12">
-        <h4 class="mb-3">Room size</h4>
-      </div>
-      <div class="col-6 col-sm-4">
-        <div class="form-group">
-          <label for="width">Width (m)</label>
-          <input type="number" min="0" step="0.1" class="form-control" id="width" aria-describedby="width-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-4">
-        <div class="form-group">
-          <label for="length">Length (m)</label>
-          <input type="number" min="0" step="0.1" class="form-control" id="length" aria-describedby="length-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-4">
-        <div class="form-group">
-          <label for="height">Height (m)</label>
-          <input type="number" min="0" step="0.1" class="form-control" id="height" aria-describedby="height-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-    </div>
-    <hr class="mb-4">
-    <div class="row">
-      <div class="col-12">
-        <h4 class="mb-3">Set of equipment</h4>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="form-group">
-          <label for="computers">Computers</label>
-          <input type="number" min="0" class="form-control" id="computers" aria-describedby="computers-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="form-group">
-          <label for="tables">Tables</label>
-          <input type="number" min="0" class="form-control" id="tables" aria-describedby="tables-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="form-group">
-          <label for="chairs">Chairs</label>
-          <input type="number" min="0" class="form-control" id="chairs" aria-describedby="chairs-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="form-group">
-          <label for="thumbs">Thumbs</label>
-          <input type="number" min="0" class="form-control" id="thumbs" aria-describedby="thumbs-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="form-group">
-          <label for="cabinets">Cabinets</label>
-          <input type="number" min="0" class="form-control" id="cabinets" aria-describedby="cabinets-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-    </div>
-    <hr class="mb-4">
-    <div class="row mb-4">
-      <div class="col-12">
-        <h4 class="mb-3">Set of room exits</h4>
-      </div>
-      <div class="col-12 col-sm-4 col-md-3">
-        <div class="form-group">
-          <label for="windows">Number of windows</label>
-          <input type="number" min="0" class="form-control" id="windows" aria-describedby="windows-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-      <div class="col-12 col-sm-4 col-md-3">
-        <div class="form-group">
-          <label for="doors">Number of doors</label>
-          <input type="number" min="0" class="form-control" id="doors" aria-describedby="doors-addon3"
-            autocomplete="off">
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-dark" onclick="calc()">Calc</button>
-
-
-  </div>
-
-
-
-
-
-  <footer class="footer d-flex flex-wrap align-content-center bg-dark text-white text-center">
-    <div class="container align-self-center">
-      Copyright &#9400; Serhii Sokol. Praca Dyplomowa Magisterska / 2019
-    </div>
-  </footer>
-
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="modalWelcome">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Welcome to ErgoApp</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <p class="text-center"><b>Summary</b></p>
-          <p>The main purpose of this work is to create an information system that helps the user to design office space in ergonomics aspect. Nowadays, elements of ergonomics are increasingly appearing in our lives, thus productivity is increasing significantly.</p>
-          <p>The user can use the application from anywhere on earth. For this, he will need a web browser, access to the internet and a conception of the room, which will be projected.</p>
-          <p>The application is intended for designers and office administrators. Also, the application can be used by people who are interested in improving the efficiency of work due to the ergonomics of the workplace.</p>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <noscript>
-    <strong>We're sorry but ergoapp doesn't work properly without JavaScript enabled. Please enable it to
-      continue.</strong>
+    <noscript>
+    <strong>We're sorry but application "ErgoApp" doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
   </noscript>
-  <script src="js/main.min.js"></script>
-  <script>
-    $( document ).ready(function() {
-      $("#modalWelcome").modal("show");
-    });
-  </script>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Submit form for add new project
+            $("#btnSubmitProject").bind("click", function() {
+                let switchRequired = true;
+
+                $('form').find('input').each(function() {
+                    if ($(this).prop('required') && $(this).val() === "") {
+                        $(this).css("border", "2px solid red");
+                        if (switchRequired === true) {
+                            $(this).focus()
+                        }
+                        $(this).after("<b class='text-danger position-absolute' style='font-size:0.7rem'>This field is required</b>");
+                        switchRequired = false;
+                    }
+                });
+
+                let username_id = '16';
+
+                let house = $("#house").val();
+                let floor = $("#floor").val();
+                let apartment = $("#apartment").val();
+                let room = $("#room").val();
+
+                let width = $("#width").val();
+                let length = $("#length").val();
+                let height = $("#height").val();
+
+                let computers = $("#computers").val();
+                let tables = $("#tables").val();
+                let chairs = $("#chairs").val();
+                let thumbs = $("#thumbs").val();
+                let cabinets = $("#cabinets").val();
+
+                let windows = $("#windows").val();
+                let doors = $("#doors").val();
+
+                $.ajax({
+                    url: "project-add.php",
+                    type: "POST",
+                    data: {
+                        username_id: username_id,
+                        house: house,
+                        floor: floor,
+                        apartment: apartment,
+                        room: room,
+                        width: width,
+                        length: length,
+                        height: height,
+                        computers: computers,
+                        tables: tables,
+                        chairs: chairs,
+                        thumbs: thumbs,
+                        cabinets: cabinets,
+                        windows: windows,
+                        doors: doors
+                    },
+                    beforeSend: function(result) {
+                        $("#modalCalculateProject").modal("hide");
+                    },
+                    success: function(result) {
+                        if (result.status === "Error") {
+                            alert(result.message);
+                        } else if (result.status === "Success") {
+                            window.location = "/result.php?project=" + result.projects.id[0];
+                        }
+                        return false;
+                    },
+                    error: function(jqXHR, exception) {
+                        alert("Error Message:", jqXHR, exception);
+                    },
+                    complete: function(data) {
+                        // console.log('function complete');
+                    }
+                });
+                return false;
+            })
+        });
+
+        $('form').find('input').each(function() {
+            if ($(this).prop('required')) {
+                $(this).blur(function() {
+                    if ($(this).val() === "") {
+                        $(this).css("border", "2px solid red");
+                        $(this).after("<b class='text-danger position-absolute' style='font-size:0.7rem'>This field is required</b>");
+                    } else {
+                        $(this).css("border", "none");
+                        $(this).nextAll().remove('b');
+                    }
+                });
+            }
+        });
+
+        $(document).on('keydown', 'input[pattern]', function(e) {
+            var input = $(this);
+            var oldVal = input.val();
+            var regex = new RegExp(input.attr('pattern'), 'g');
+
+            setTimeout(function() {
+                var newVal = input.val();
+                if (!regex.test(newVal)) {
+                    input.val(oldVal);
+                }
+            }, 0);
+        });
+
+        function ModalLogoutShow() {
+            $("#modalLogout").modal("show");
+        };
+
+        function ModalCalculateProjectShow() {
+            $("#modalCalculateProject").modal("show");
+        };
+    </script>
 </body>
 
 </html>
